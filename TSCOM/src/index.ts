@@ -11,3 +11,11 @@ interface UserData{
     location:string;
     url:string;
 }
+
+function fetchUserData(url: string){
+    
+
+}
+
+// default fun call
+fetchUserData("https://api.github.com/users");
