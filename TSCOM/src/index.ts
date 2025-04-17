@@ -17,5 +17,5 @@ function fetchUserData(url: string){
 
 }
 
-// default fun call
+// default fun call page load
 fetchUserData("https://api.github.com/users");
