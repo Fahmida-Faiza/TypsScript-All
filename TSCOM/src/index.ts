@@ -1,6 +1,6 @@
 const getUsername = document.querySelector("#user") as HTMLInputElement;
-const formSubmit = document.querySelector(".form") as HTMLFormElement;
-const main_container = document.querySelector(".main-container") as HTMLElement;
+const formSubmit = document.querySelector("#form") as HTMLFormElement;
+const main_container = document.querySelector(".main_container") as HTMLElement;
 
 
 // 
@@ -66,3 +66,24 @@ function fetchUserData(url: string){
 
 // default fun call page load
 fetchUserData("https://api.github.com/users");
+
+// search korar
+formSubmit.addEventListener('submit',async (e) =>{
+    e.preventDefault()
+    const searchTerm = getUsername.value.toLowerCase();
+    try {
+
+        const url = "https://api.github.com/users";
+
+        const allUserData= await myCustomFetcher<UserData[]>(url.{});
+         const matchingUsers = allUserData.filter((user) => {
+            return user.login.toLowerCase().includes(searchTerm)
+         })
+
+
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+})

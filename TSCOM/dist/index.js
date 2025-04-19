@@ -1,7 +1,7 @@
 "use strict";
 const getUsername = document.querySelector("#user");
-const formSubmit = document.querySelector(".form");
-const main_container = document.querySelector(".main-container");
+const formSubmit = document.querySelector("#form");
+const main_container = document.querySelector(".main_container");
 // resuable function
 async function myCustomFetcher(url, options) {
     const response = await fetch(url, options);
@@ -35,3 +35,4 @@ function fetchUserData(url) {
 }
 // default fun call page load
 fetchUserData("https://api.github.com/users");
+// search korar
