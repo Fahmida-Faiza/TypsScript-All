@@ -75,12 +75,31 @@ formSubmit.addEventListener('submit',async (e) =>{
 
         const url = "https://api.github.com/users";
 
-        const allUserData= await myCustomFetcher<UserData[]>(url.{});
+        const allUserData= await myCustomFetcher<UserData[]>(url ,{});
          const matchingUsers = allUserData.filter((user) => {
             return user.login.toLowerCase().includes(searchTerm)
-         })
+         });
 
 
+
+// previous data empty korbo
+
+main_container.innerHTML=""
+// 
+
+
+
+
+if(matchingUsers.length === 0){
+    main_container?.insertAdjacentHTML(
+        "beforeend",
+        `<p class="empty-msg">No matching users found</p>`
+    )
+}else{
+     for(const singleUser of matchingUsers){
+        showResultUI(singleUser)
+     }
+}
         
     } catch (error) {
         console.log(error)
